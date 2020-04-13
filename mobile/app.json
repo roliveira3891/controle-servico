@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "CQ Nordeste",
+    "slug": "CQ-Nordeste",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#38697A"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.codenav.cqnordeste",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.codenav.cqnordeste",
+      "versionCode": 1
+    }
+  }
+}

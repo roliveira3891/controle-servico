@@ -20,9 +20,23 @@ module.exports = {
 
     async profile (request, response){
         const { matricula } = request.params;
-        const dados = await connection('cq_inst_gpon')
-            .select('*').where('matsupervisor', '=', matricula);
+        const { page = 1} = request.query;
+        
+        const [count] = await connection('cq_inst_gpon')
+            .select('*')
+            .where('matsupervisor', '=', matricula)
+            .where('cadastrado', '=','ABERTO') 
+            .count();
 
+        const dados = await connection('cq_inst_gpon')
+            .limit(5)
+            .offset((page -1) * 5)
+            .select('*')
+            .where('matsupervisor', '=', matricula)
+            .where('cadastrado', '=','ABERTO');
+            
+        response.header('X-Total-Count', count['count(*)']);
+       
         return response.json(dados);
     },
 
